@@ -83,6 +83,16 @@ Key observations:
 - Benign predictions rely more on acoustic intensity and posterior-related evidence.
 - The hierarchical evidence layout maps low-level perception signals to high-level decision gates, making each prediction traceable.
 
+## Datasets and Implementation
+
+We conduct experiments on three publicly available BUS datasets: 
+
+- **BUSI**
+- **BUV**
+- **BUSBRA**
+
+We use **Auto-GPT** to build our agent framework. The calibration **A<sub>k-plug</sub> employs an EfficientNet pretrained on BUSC**, which is independent of the target datasets, **ensuring no data leakage**. Each dataset is randomly divided into training, validation, and test sets with a **7:2:1 ratio**. RACA uses the validation split exclusively for **hyperparameter selection and memory construction**, while all baselines adopt **identical data splits for fair comparison**. Runtime is **31.40 s/image on one RTX 4090 24GB GPU**, with most latency from the **VLM component (31.38 s/image)**.
+
 ## Results
 
 RACA is evaluated on three public breast ultrasound datasets: **BUSI**, **BUV**, and **BUSBRA**. All methods use the same 7:2:1 train/validation/test split for fair comparison.
@@ -108,15 +118,7 @@ RACA shows the strongest overall accuracy across all three datasets and achieves
 
 The step-wise improvement supports the central design: memory-based calibration improves rule-based inference rather than replacing it.
 
-## Datasets
 
-The experiments use publicly available breast ultrasound datasets:
-
-- **BUSI**
-- **BUV**
-- **BUSBRA**
-
-Please download each dataset from its official source and follow the corresponding license and usage terms. Dataset preparation scripts will be added after code release.
 
 ## Release Plan
 
