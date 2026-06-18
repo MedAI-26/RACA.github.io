@@ -99,11 +99,145 @@ RACA is evaluated on three public breast ultrasound datasets: **BUSI**, **BUV**,
 
 ### Main Comparison
 
-| Dataset | Best competing ACC | RACA ACC | RACA PRE | RACA REC | RACA F1 |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| BUSI | 0.7500 | **0.8088** | 0.7742 | 0.8000 | **0.7869** |
-| BUV | 0.7647 | **0.8235** | 0.7143 | **0.8333** | **0.7692** |
-| BUSBRA | 0.7979 | **0.8085** | 0.7273 | 0.6557 | 0.6897 |
+<table>
+  <thead>
+    <tr>
+      <th rowspan="2">Category</th>
+      <th rowspan="2">Method</th>
+      <th colspan="4">BUSI</th>
+      <th colspan="4">BUV</th>
+      <th colspan="4">BUSBRA</th>
+    </tr>
+    <tr>
+      <th>ACC</th>
+      <th>PRE</th>
+      <th>REC</th>
+      <th>F1</th>
+      <th>ACC</th>
+      <th>PRE</th>
+      <th>REC</th>
+      <th>F1</th>
+      <th>ACC</th>
+      <th>PRE</th>
+      <th>REC</th>
+      <th>F1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Fully-supervised</td>
+      <td>LKA [32]</td>
+      <td>0.7353</td>
+      <td>0.6765</td>
+      <td>0.7667</td>
+      <td>0.7188</td>
+      <td>0.7647</td>
+      <td>0.7500</td>
+      <td>0.5000</td>
+      <td>0.6000</td>
+      <td>0.7979</td>
+      <td>0.7447</td>
+      <td>0.5738</td>
+      <td>0.6481</td>
+    </tr>
+    <tr>
+      <td>Fully-supervised</td>
+      <td>DiffMICv2 [30]</td>
+      <td>0.7500</td>
+      <td>0.7485</td>
+      <td>0.7518</td>
+      <td>0.7486</td>
+      <td>0.7647</td>
+      <td>0.7596</td>
+      <td>0.7045</td>
+      <td>0.7167</td>
+      <td>0.7606</td>
+      <td>0.7419</td>
+      <td>0.6780</td>
+      <td><strong>0.6915</strong></td>
+    </tr>
+    <tr>
+      <td>Semi-supervised</td>
+      <td>OPENSSC [7]</td>
+      <td>0.7206</td>
+      <td>0.7540</td>
+      <td>0.7395</td>
+      <td>0.7191</td>
+      <td>0.7059</td>
+      <td><strong>0.8438</strong></td>
+      <td>0.5833</td>
+      <td>0.5503</td>
+      <td>0.7394</td>
+      <td>0.7188</td>
+      <td>0.6410</td>
+      <td>0.6500</td>
+    </tr>
+    <tr>
+      <td>Semi-supervised</td>
+      <td>PEAT [31]</td>
+      <td>0.6765</td>
+      <td>0.7381</td>
+      <td>0.6404</td>
+      <td>0.6211</td>
+      <td>0.6471</td>
+      <td>0.3235</td>
+      <td>0.5000</td>
+      <td>0.3929</td>
+      <td>0.7447</td>
+      <td><strong>0.7512</strong></td>
+      <td>0.6321</td>
+      <td>0.6382</td>
+    </tr>
+    <tr>
+      <td>Medical agent-based</td>
+      <td>Medagents [27]</td>
+      <td>0.6119</td>
+      <td>0.6423</td>
+      <td>0.6297</td>
+      <td>0.6077</td>
+      <td>0.5294</td>
+      <td>0.5208</td>
+      <td>0.5227</td>
+      <td>0.5143</td>
+      <td>0.5260</td>
+      <td>0.5271</td>
+      <td>0.5312</td>
+      <td>0.5103</td>
+    </tr>
+    <tr>
+      <td>Medical agent-based</td>
+      <td>MDAgents [12]</td>
+      <td>0.5588</td>
+      <td>0.5000</td>
+      <td><strong>0.8000</strong></td>
+      <td>0.6154</td>
+      <td>0.7059</td>
+      <td>0.6000</td>
+      <td>0.5000</td>
+      <td>0.5455</td>
+      <td>0.6330</td>
+      <td>0.4524</td>
+      <td>0.6230</td>
+      <td>0.5241</td>
+    </tr>
+    <tr>
+      <td><strong>Ours</strong></td>
+      <td><strong>RACA</strong></td>
+      <td><strong>0.8088</strong></td>
+      <td><strong>0.7742</strong></td>
+      <td><strong>0.8000</strong></td>
+      <td><strong>0.7869</strong></td>
+      <td><strong>0.8235</strong></td>
+      <td>0.7143</td>
+      <td><strong>0.8333</strong></td>
+      <td><strong>0.7692</strong></td>
+      <td><strong>0.8085</strong></td>
+      <td>0.7273</td>
+      <td>0.6557</td>
+      <td>0.6897</td>
+    </tr>
+  </tbody>
+</table>
 
 RACA shows the strongest overall accuracy across all three datasets and achieves large gains over general medical agent baselines, highlighting the importance of explicitly encoding domain-specific diagnostic rules.
 
